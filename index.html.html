@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menghubungkan...</title>
+
+  <!-- ============================================
+       META PIXEL — Ganti PIXEL_ID_KAMU dengan ID asli
+       Dapatkan di: Meta Business Suite → Events Manager
+  ============================================ -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', 'PIXEL_ID_KAMU'); // <-- GANTI DI SINI
+    fbq('track', 'PageView');
+    fbq('track', 'Contact');     // Event: seseorang mengklik ke WA
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=PIXEL_ID_KAMU&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- ============================================ -->
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:  #25D366;
+      --dark:   #0a0f0d;
+      --mid:    #111a14;
+      --card:   #162019;
+      --text:   #e8f5ea;
+      --muted:  #7aab85;
+      --accent: #34eb78;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Sora', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* ---- background grain + glow ---- */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 40%, rgba(37,211,102,.13) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(52,235,120,.07) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .card {
+      position: relative;
+      background: var(--card);
+      border: 1px solid rgba(37,211,102,.18);
+      border-radius: 24px;
+      padding: 52px 44px 44px;
+      max-width: 400px;
+      width: 90vw;
+      text-align: center;
+      box-shadow:
+        0 0 0 1px rgba(37,211,102,.06),
+        0 32px 80px rgba(0,0,0,.6),
+        0 0 60px rgba(37,211,102,.08);
+      animation: fadeUp .6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity:0; transform: translateY(24px); }
+      to   { opacity:1; transform: translateY(0); }
+    }
+
+    /* ---- WA icon ---- */
+    .wa-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--green);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 28px;
+      box-shadow: 0 0 32px rgba(37,211,102,.45);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 28px rgba(37,211,102,.4); }
+      50%      { box-shadow: 0 0 52px rgba(37,211,102,.75); }
+    }
+    .wa-icon svg { width: 38px; height: 38px; fill: #fff; }
+
+    h1 {
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -.01em;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    p.sub {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 36px;
+    }
+
+    /* ---- progress bar ---- */
+    .bar-wrap {
+      background: rgba(255,255,255,.06);
+      border-radius: 99px;
+      height: 6px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--green), var(--accent));
+      border-radius: 99px;
+      transition: width .05s linear;
+    }
+
+    .counter {
+      font-size: .78rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+    .counter span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ---- CTA button ---- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Sora', sans-serif;
+      font-size: .92rem;
+      font-weight: 600;
+      padding: 14px 28px;
+      border-radius: 99px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease, background .15s;
+      box-shadow: 0 4px 20px rgba(37,211,102,.3);
+    }
+    .btn:hover {
+      background: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(37,211,102,.5);
+    }
+    .btn svg { width: 18px; height: 18px; fill: #fff; flex-shrink: 0; }
+
+    .note {
+      margin-top: 20px;
+      font-size: .75rem;
+      color: rgba(122,171,133,.5);
+    }
+  </style>
+</head>
+<body>
+
+<div class="card">
+
+  <div class="wa-icon">
+    <!-- WhatsApp SVG icon -->
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.003 2C8.28 2 2 8.28 2 16.003c0 2.48.666 4.808 1.826 6.81L2 30l7.378-1.794A13.94 13.94 0 0 0 16.003 30C23.72 30 30 23.72 30 16.003 30 8.28 23.72 2 16.003 2zm0 25.453a11.41 11.41 0 0 1-5.817-1.594l-.417-.248-4.376 1.063 1.097-4.264-.272-.437A11.39 11.39 0 0 1 4.547 16c0-6.315 5.14-11.453 11.456-11.453S27.453 9.685 27.453 16c0 6.315-5.138 11.453-11.45 11.453zm6.276-8.574c-.344-.172-2.035-1.004-2.35-1.118-.315-.115-.545-.172-.774.172-.23.344-.887 1.118-1.087 1.348-.2.23-.4.258-.744.086-.344-.172-1.452-.535-2.767-1.707-1.022-.913-1.713-2.04-1.913-2.384-.2-.344-.021-.53.15-.702.155-.155.344-.4.516-.602.172-.2.23-.344.344-.573.115-.23.057-.43-.029-.602-.086-.172-.774-1.863-1.06-2.55-.28-.672-.562-.58-.774-.59l-.659-.012c-.23 0-.601.086-.916.43-.315.344-1.202 1.175-1.202 2.865 0 1.692 1.23 3.325 1.402 3.554.172.23 2.42 3.695 5.866 5.183.82.354 1.46.566 1.958.724.823.262 1.572.225 2.163.137.66-.099 2.035-.832 2.322-1.634.287-.802.287-1.49.201-1.634-.086-.144-.315-.23-.659-.4z"/>
+    </svg>
+  </div>
+
+  <h1>Menghubungkan ke WhatsApp...</h1>
+  <p class="sub">Anda akan diarahkan otomatis dalam beberapa detik.<br>Atau klik tombol di bawah.</p>
+
+  <div class="bar-wrap">
+    <div class="bar" id="bar"></div>
+  </div>
+  <p class="counter">Redirect dalam <span id="countdown">3</span> detik</p>
+
+  <a class="btn" id="wa-btn"
+     href="https://wa.me/6281221700211?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20Anda"
+     target="_blank" rel="noopener">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.003 2C8.28 2 2 8.28 2 16.003c0 2.48.666 4.808 1.826 6.81L2 30l7.378-1.794A13.94 13.94 0 0 0 16.003 30C23.72 30 30 23.72 30 16.003 30 8.28 23.72 2 16.003 2zm0 25.453a11.41 11.41 0 0 1-5.817-1.594l-.417-.248-4.376 1.063 1.097-4.264-.272-.437A11.39 11.39 0 0 1 4.547 16c0-6.315 5.14-11.453 11.456-11.453S27.453 9.685 27.453 16c0 6.315-5.138 11.453-11.45 11.453zm6.276-8.574c-.344-.172-2.035-1.004-2.35-1.118-.315-.115-.545-.172-.774.172-.23.344-.887 1.118-1.087 1.348-.2.23-.4.258-.744.086-.344-.172-1.452-.535-2.767-1.707-1.022-.913-1.713-2.04-1.913-2.384-.2-.344-.021-.53.15-.702.155-.155.344-.4.516-.602.172-.2.23-.344.344-.573.115-.23.057-.43-.029-.602-.086-.172-.774-1.863-1.06-2.55-.28-.672-.562-.58-.774-.59l-.659-.012c-.23 0-.601.086-.916.43-.315.344-1.202 1.175-1.202 2.865 0 1.692 1.23 3.325 1.402 3.554.172.23 2.42 3.695 5.866 5.183.82.354 1.46.566 1.958.724.823.262 1.572.225 2.163.137.66-.099 2.035-.832 2.322-1.634.287-.802.287-1.49.201-1.634-.086-.144-.315-.23-.659-.4z"/>
+    </svg>
+    Buka WhatsApp Sekarang
+  </a>
+
+  <p class="note">Halaman ini menggunakan Meta Pixel untuk pelacakan iklan.</p>
+</div>
+
+<script>
+  // ---- Countdown + progress bar ----
+  const WA_URL = "https://wa.me/6281221700211?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20Anda";
+  const DURATION = 3000; // ms
+  const INTERVAL = 50;   // ms tick
+
+  const bar       = document.getElementById('bar');
+  const countdown = document.getElementById('countdown');
+  let elapsed = 0;
+
+  const timer = setInterval(() => {
+    elapsed += INTERVAL;
+    const pct = Math.min((elapsed / DURATION) * 100, 100);
+    bar.style.width = pct + '%';
+
+    const secsLeft = Math.ceil((DURATION - elapsed) / 1000);
+    countdown.textContent = secsLeft > 0 ? secsLeft : 0;
+
+    if (elapsed >= DURATION) {
+      clearInterval(timer);
+      window.location.href = WA_URL;
+    }
+  }, INTERVAL);
+</script>
+
+</body>
+</html>
