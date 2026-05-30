@@ -1,38 +1,633 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Mengalihkan...</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celana Kulot Hommy – Nyaman Seharian</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FAF6F1;
+    --brown: #3B2314;
+    --caramel: #C4884A;
+    --blush: #E8C9A8;
+    --soft: #F2E8DC;
+    --white: #FFFFFF;
+    --green: #2D6A4F;
+  }
 
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1755744672258251');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1755744672258251&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-    <!-- Script Redirect dengan Jeda Otomatis 1.2 Detik -->
-    <script>
-        setTimeout(function() {
-            window.location.href = "https://s.shopee.co.id/1BJU99R7Hm";
-        }, 1200);
-    </script>
+  body {
+    background: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--brown);
+    max-width: 480px;
+    margin: 0 auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    background: var(--brown);
+    min-height: 70vw;
+    max-height: 380px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #5C3A20 0%, #3B2314 60%, #1E0F08 100%);
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--caramel) 0px,
+      var(--caramel) 1px,
+      transparent 1px,
+      transparent 20px
+    );
+  }
+
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    opacity: 0.55;
+    mix-blend-mode: luminosity;
+  }
+
+  .hero-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to top, var(--brown) 0%, transparent 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 24px 20px 28px;
+    width: 100%;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--caramel);
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+
+  .badge::before {
+    content: '★';
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 8px;
+  }
+
+  .hero h1 span {
+    color: var(--caramel);
+  }
+
+  .hero-sub {
+    color: var(--blush);
+    font-size: 14px;
+    font-weight: 400;
+    opacity: 0.9;
+  }
+
+  /* TRUST BAR */
+  .trust-bar {
+    background: var(--caramel);
+    display: flex;
+    justify-content: space-around;
+    padding: 14px 16px;
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: white;
+  }
+
+  .trust-item .num {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .trust-item .label {
+    font-size: 10px;
+    opacity: 0.85;
+    letter-spacing: 0.03em;
+    text-align: center;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 28px 20px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    position: relative;
+    padding-left: 14px;
+  }
+
+  .section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+    width: 4px;
+    background: var(--caramel);
+    border-radius: 2px;
+  }
+
+  /* BENEFIT CARDS */
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .benefit-card {
+    background: var(--white);
+    border-radius: 14px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    box-shadow: 0 2px 12px rgba(59,35,20,0.06);
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .benefit-card:nth-child(2) { animation-delay: 0.1s; }
+  .benefit-card:nth-child(3) { animation-delay: 0.2s; }
+  .benefit-card:nth-child(4) { animation-delay: 0.3s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .benefit-icon {
+    font-size: 26px;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .benefit-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 3px;
+    color: var(--brown);
+  }
+
+  .benefit-text p {
+    font-size: 13px;
+    color: #7A6050;
+    line-height: 1.5;
+  }
+
+  /* PRICE BLOCK */
+  .price-block {
+    background: var(--soft);
+    border-radius: 18px;
+    padding: 20px;
+    border: 1.5px solid var(--blush);
+  }
+
+  .price-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #9A7A60;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+  }
+
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--brown);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .price-note {
+    font-size: 12px;
+    color: #9A7A60;
+    margin-bottom: 16px;
+  }
+
+  .price-note s {
+    color: #C4A08A;
+  }
+
+  .variants {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 6px;
+  }
+
+  .variant-chip {
+    background: white;
+    border: 1.5px solid var(--blush);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--brown);
+  }
+
+  .variant-note {
+    font-size: 11px;
+    color: #B08060;
+    margin-top: 8px;
+  }
+
+  /* CTA */
+  .cta-section {
+    padding: 0 20px 20px;
+    position: sticky;
+    bottom: 0;
+    background: linear-gradient(to top, var(--cream) 80%, transparent);
+    padding-top: 20px;
+    z-index: 10;
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    background: var(--brown);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 18px 20px;
+    border-radius: 16px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 8px 24px rgba(59,35,20,0.3);
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.08) 0%, transparent 60%);
+  }
+
+  .cta-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 4px 12px rgba(59,35,20,0.2);
+  }
+
+  .cta-btn .cta-sub {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.75;
+    margin-top: 3px;
+    letter-spacing: 0;
+  }
+
+  .cta-shopee {
+    display: block;
+    width: 100%;
+    background: var(--caramel);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 20px;
+    border-radius: 16px;
+    margin-top: 10px;
+    box-shadow: 0 4px 16px rgba(196,136,74,0.3);
+  }
+
+  /* REVIEWS */
+  .reviews {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .review-card {
+    background: white;
+    border-radius: 14px;
+    padding: 16px 18px;
+    box-shadow: 0 2px 10px rgba(59,35,20,0.05);
+  }
+
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .reviewer-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brown);
+  }
+
+  .stars {
+    color: var(--caramel);
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .review-text {
+    font-size: 13px;
+    color: #7A6050;
+    line-height: 1.6;
+  }
+
+  .review-tag {
+    display: inline-block;
+    background: var(--soft);
+    color: var(--caramel);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* URGENCY */
+  .urgency {
+    background: var(--brown);
+    color: white;
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 20px 24px;
+  }
+
+  .urgency-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .urgency-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .urgency-text p {
+    font-size: 12px;
+    opacity: 0.75;
+    line-height: 1.4;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--blush);
+    margin: 0 20px;
+    opacity: 0.5;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 16px 20px 32px;
+    font-size: 11px;
+    color: #B08060;
+  }
+
+  /* GUARANTEE */
+  .guarantee {
+    background: #EEF7F2;
+    border-radius: 14px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid #C3E0D0;
+  }
+
+  .guarantee-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .guarantee-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green);
+    margin-bottom: 2px;
+  }
+
+  .guarantee-text p {
+    font-size: 12px;
+    color: #4A8A6A;
+    line-height: 1.5;
+  }
+</style>
 </head>
 <body>
-    <div style="text-align: center; margin-top: 50px; font-family: sans-serif;">
-        <p>Sedang mengalihkan Anda ke Shopee...</p>
-        <p>Jika halaman tidak berpindah otomatis, <a href="https://s.shopee.co.id/1BJU99R7Hm">klik di sini</a>.</p>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-gradient"></div>
+  <div class="hero-content">
+    <div class="badge">Terlaris di Shopee</div>
+    <h1>Celana Kulot<br><span>Hommy</span></h1>
+    <p class="hero-sub">Adem, nyaman, & tampil elegan seharian</p>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <span class="num">4.9★</span>
+    <span class="label">Rating Toko</span>
+  </div>
+  <div class="trust-item">
+    <span class="num">10rb+</span>
+    <span class="label">Terjual</span>
+  </div>
+  <div class="trust-item">
+    <span class="num">100%</span>
+    <span class="label">Original</span>
+  </div>
+</div>
+
+<!-- BENEFITS -->
+<div class="section">
+  <h2 class="section-title">Kenapa Pilih Kulot Hommy?</h2>
+  <div class="benefits">
+    <div class="benefit-card">
+      <div class="benefit-icon">🌬️</div>
+      <div class="benefit-text">
+        <strong>Bahan Adem & Anti Gerah</strong>
+        <p>Material premium breathable — nyaman dipakai dari pagi sampai malam tanpa gerah.</p>
+      </div>
     </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">✂️</div>
+      <div class="benefit-text">
+        <strong>Potongan Menutup Sempurna</strong>
+        <p>Desain kulot longgar yang tetap terlihat rapi dan anggun di semua postur tubuh.</p>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">🎨</div>
+      <div class="benefit-text">
+        <strong>Pilihan Warna Lengkap</strong>
+        <p>Tersedia berbagai warna netral & trendi — cocok mix & match dengan outfit apapun.</p>
+      </div>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon">👗</div>
+      <div class="benefit-text">
+        <strong>Cocok untuk Semua Momen</strong>
+        <p>Santai di rumah, kerja, hangout, hingga kondangan — tampilan tetap stylish.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PRICE -->
+<div class="section">
+  <h2 class="section-title">Harga & Varian</h2>
+  <div class="price-block">
+    <p class="price-label">Mulai dari</p>
+    <p class="price-main">Rp 79.000</p>
+    <p class="price-note">Harga normal <s>Rp 120.000</s> — hemat 34%</p>
+    <div class="variants">
+      <span class="variant-chip">S</span>
+      <span class="variant-chip">M</span>
+      <span class="variant-chip">L</span>
+      <span class="variant-chip">XL</span>
+      <span class="variant-chip">XXL</span>
+    </div>
+    <p class="variant-note">📦 Tersedia 10+ pilihan warna — cek langsung di Shopee</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- REVIEWS -->
+<div class="section">
+  <h2 class="section-title">Yang Mereka Bilang</h2>
+  <div class="reviews">
+    <div class="review-card">
+      <div class="review-header">
+        <span class="reviewer-name">Siti R. ✓ Pembeli Terverifikasi</span>
+        <span class="stars">★★★★★</span>
+      </div>
+      <p class="review-text">"Bahannya lembut banget, gak gerah sama sekali. Udah beli 3 warna dan mau beli lagi!"</p>
+      <span class="review-tag">Repeat Buyer</span>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <span class="reviewer-name">Dewi A. ✓ Pembeli Terverifikasi</span>
+        <span class="stars">★★★★★</span>
+      </div>
+      <p class="review-text">"Cocok banget buat kerja, tampilannya rapi tapi tetap nyaman dipakai seharian. Packaging juga bagus."</p>
+      <span class="review-tag">Untuk Kerja</span>
+    </div>
+    <div class="review-card">
+      <div class="review-header">
+        <span class="reviewer-name">Nur F. ✓ Pembeli Terverifikasi</span>
+        <span class="stars">★★★★★</span>
+      </div>
+      <p class="review-text">"Ukurannya pas, potongannya bagus nutupin perut. Worth it banget harganya segitu!"</p>
+      <span class="review-tag">Worth It</span>
+    </div>
+  </div>
+</div>
+
+<!-- GUARANTEE -->
+<div class="section" style="padding-top: 0;">
+  <div class="guarantee">
+    <div class="guarantee-icon">🛡️</div>
+    <div class="guarantee-text">
+      <strong>Belanja Aman & Terpercaya</strong>
+      <p>Transaksi melalui Shopee resmi. Produk 100% original, pengiriman cepat, dan dilindungi oleh garansi Shopee.</p>
+    </div>
+  </div>
+</div>
+
+<!-- URGENCY -->
+<div class="urgency">
+  <div class="urgency-icon">⏰</div>
+  <div class="urgency-text">
+    <strong>Stok Terbatas!</strong>
+    <p>Produk ini sering habis. Pesan sekarang sebelum kehabisan dan dapatkan harga terbaik.</p>
+  </div>
+</div>
+
+<!-- CTA STICKY -->
+<div class="cta-section">
+  <a href="https://s.shopee.co.id/1BJU99R7Hm" class="cta-btn" onclick="gtag && gtag('event', 'click_shopee')">
+    🛍️ Beli Sekarang di Shopee
+    <span class="cta-sub">Klik untuk lihat harga & pilih warna →</span>
+  </a>
+</div>
+
+<div class="footer">
+  Harga & ketersediaan stok dapat berubah sewaktu-waktu.<br>
+  Transaksi aman & terlindungi oleh Shopee.
+</div>
+
 </body>
 </html>
